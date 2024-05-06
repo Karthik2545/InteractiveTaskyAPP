@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Reminder Application</title>
+        <!-- Custom Stylesheet -->
+        <link rel="stylesheet" href="Remainder.css" />
+        <!-- Bootstrap CDN -->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+          crossorigin="anonymous"
+        />
+    
+        <!-- Font Awesome -->
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+    </head>
+    <body onload="load()">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid" style="background-color:grey;margin-top: -7px;">
+              <a class="navbar-brand">Home</a>
+              <form class="d-flex" style="width:50%;margin-left: 30px;" role="search">
+                <input class="form-control me-2" type="search" id="mark" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success" type="submit" onclick="search()" >Search</button>
+              </form>
+              <button class="btn btn-warning" type="submit" data-bs-toggle="modal" data-bs-target="#addNewModal">
+              <i class="fas fa-plus"></i> Add Reminder</button>
+            </div>
+          </nav>
+                <!-- Modal for Adding a New Item -->
+        <div class="modal fade" id="addNewModal" tabindex="-1" aria-labelledby="addNewModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="addNewModalLabel">Add Reminder</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="imageUrl" class="form-label">Image URL</label>
+                        <input type="url" class="form-control" id="imageUrl" placeholder="https://example.com/displayImg.png" />   
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskTitle" class="form-label">Time</label>
+                        <input type="text" class="form-control" id="time" placeholder="please enter your time here.." required/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskTitle" class="form-label">Reminder Title</label>
+                        <input type="text" class="form-control" id="title" placeholder="please enter your title here.." required/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tags" class="form-label">Purpose</label>
+                        <input type="text" class="form-control" id="purpose" placeholder="please enter your purpose here.." required/>
+                    </div>
+                </form>
+            </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" onclick="clicksubmit()">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000">
+            <div class="carousel-inner " style="background-color:grey; margin-top: -6px;padding:10px 0px 10px 0px;">
+              <div class="carousel-item active" >
+                <img src="https://res.cloudinary.com/dulc7ullq/image/upload/v1706525080/reminder-service_l7bi0n.webp" class="d-block" style="height: 250px;width: 80%;padding-left: 230px;">
+              </div>
+              <div class="carousel-item">
+                <img src="https://res.cloudinary.com/dulc7ullq/image/upload/v1706525080/istockphoto-617567380-612x612_zrqhbv.jpg" class="d-block" style="height: 250px;width: 80%;padding-left: 230px;">
+              </div>
+              <div class="carousel-item">
+                <img src="https://res.cloudinary.com/dulc7ullq/image/upload/v1706527150/reminder-speech-bubble-isolated-on-260nw-1782460079_boq5ne.jpg" class="d-block" style="height: 250px;width: 80%;padding-left: 230px;">
+              </div>
+            </div>
+        </div>
+        <div class="newcard">
+        </div>
+        <div class="modal fade" id="showTask" tabindex="-1" aria-labelledby="showTaskLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="showTaskLabel">Task Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body newcard1">
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- custom JS File -->
+        <script src="Remainder.js"></script>
+        <!-- Bootstrap CDN -->
+        <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    </body>
+</html>
